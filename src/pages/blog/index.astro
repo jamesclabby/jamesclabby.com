@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Card from '@/components/ui/Card';
+import { formatDate } from '@/utils/helpers';
+
+const posts = await getCollection('blog', ({ data }: { data: any }) => {
+  return data.draft !== true;
+});
+
+// Sort posts by date (newest first)
+posts.sort((a: any, b: any) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+---
+
+<Layout 
+  title="Blog - James Clabby"
+  description="Thoughts on web development, technology, and creativity"
+>
+  <Header />
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+          Blog
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Thoughts on web development, technology, and creativity
+        </p>
+      </header>
+
+      {posts.length === 0 ? (
+        <div class="text-center py-12">
+          <p class="text-gray-600 dark:text-gray-400 text-lg">
+            No blog posts yet. Check back soon!
+          </p>
+        </div>
+      ) : (
+        <div class="grid gap-8">
+          {posts.map((post: any) => (
+            <Card variant="outlined" className="hover:shadow-lg transition-shadow">
+              <article>
+                <header class="mb-4">
+                  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <a href={`/blog/${post.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      {post.data.title}
+                    </a>
+                  </h2>
+                  <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <time datetime={post.data.publishDate.toISOString()}>
+                      {formatDate(new Date(post.data.publishDate))}
+                    </time>
+                    {post.data.tags && post.data.tags.length > 0 && (
+                      <div class="flex gap-2">
+                        {post.data.tags.map((tag: string) => (
+                          <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-md text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </header>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  {post.data.description}
+                </p>
+                <a 
+                  href={`/blog/${post.slug}`}
+                  class="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  Read more →
+                </a>
+              </article>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+  <Footer />
+</Layout> 

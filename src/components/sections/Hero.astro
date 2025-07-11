@@ -1,0 +1,47 @@
+---
+import Button from '@/components/ui/Button';
+---
+
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+  <div class="container mx-auto px-4 py-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
+        Hi, I'm <span class="text-blue-600 dark:text-blue-400">James Clabby</span>
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        A builder passionate about creating meaningful user experiences and solving problems that matter.
+      </p>
+
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Senior Associate II at <a href="https://princeton.com" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors underline" target="_blank" rel="noopener noreferrer">Princeton Consultants</a>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button size="lg">
+          <a href="/projects" class="flex items-center gap-2">
+            View My Work
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </Button>
+        
+        <Button variant="outline" size="lg">
+          <a href="/about">Learn More</a>
+        </Button>
+      </div>
+
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <p>Currently building with React, TypeScript, and Astro</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section> 

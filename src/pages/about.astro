@@ -1,0 +1,84 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { Image } from 'astro:assets';
+import headshot from '@/assets/headshot.png';
+---
+
+<Layout 
+  title="About - James Clabby"
+  description="Learn more about James Clabby, developer and creator"
+  type="website"
+>
+  <Header />
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <header class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+          About Me
+        </h1>
+      </header>
+
+      <div class="space-y-12">
+        <!-- Introduction with Headshot -->
+        <section>
+          <div class="flex flex-col md:flex-row md:items-start md:gap-8">
+            <!-- Text Content -->
+            <div class="md:flex-1 md:max-w-md lg:max-w-lg">
+              <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                My name is James Clabby and I'm currently a Senior Associate II at <a href="https://princeton.com" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors underline" target="_blank" rel="noopener noreferrer">Princeton Consultants</a> 
+                where I help Fortune 500 companies leverage state of the art technologies through modernizing their in-house software.
+              </p>
+              <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mt-4">
+                I'm passionate about building meaningful digital experiences and solving complex problems through innovative technology solutions.
+              </p>
+              <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mt-4">
+                Outside of work, I enjoy surfing, poker, college football (Go Irish!), and spending quality time with family and friends.  
+                I was born and raised in Manasquan, NJ and currently live in NYC.
+              </p>
+            </div>
+            
+            <!-- Headshot -->
+            <div class="mt-6 md:mt-0 md:flex-shrink-0">
+              <Image 
+                src={headshot} 
+                alt="James Clabby headshot" 
+                class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-lg shadow-lg mx-auto md:mx-0"
+                width={384}
+                height={384}
+                loading="eager"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- My Approach Section -->
+        <section>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">My Approach</h2>
+          <div class="space-y-4">
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              I'm driven by bridging the gap between what people truly need and what technology can deliver. 
+              My approach starts with genuine empathy—listening deeply to uncover the underlying problems users are trying to solve, then translating those insights into clear, actionable solutions that engineering teams can build.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              What energizes me most is orchestrating the complex dance of stakeholders, timelines, and technical constraints to bring meaningful solutions to life. 
+              I thrive on being the connective tissue between customer insights and development execution. 
+              There's something uniquely rewarding about seeing a customer's frustration transform into delight because we took the time to truly understand their world and built something that fits seamlessly into it.
+            </p>
+          </div>
+        </section>
+
+        <!-- Get In Touch Section -->
+        <section>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Get In Touch</h2>
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            I'm always interested in discussing college football, new projects, opportunities, or just chatting
+            about technology. Feel free to reach out!
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout> 

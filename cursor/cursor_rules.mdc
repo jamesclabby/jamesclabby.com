@@ -1,0 +1,200 @@
+---
+alwaysApply: false
+---
+<!-- Component template -->
+<div class="component-wrapper">
+  <h1>{title}</h1>
+  {description && <p>{description}</p>}
+</div>
+
+<style>
+  /* Component-scoped styles if needed */
+</style>
+```
+
+```typescript
+// React components (.tsx files)
+interface ComponentProps {
+  title: string;
+  description?: string;
+}
+
+export default function Component({ title, description }: ComponentProps) {
+  return (
+    <div className="component-wrapper">
+      <h1>{title}</h1>
+      {description && <p>{description}</p>}
+    </div>
+  );
+}
+```
+
+### Styling Guidelines
+- Use Tailwind CSS utility classes primarily
+- Follow mobile-first responsive design
+- Use semantic color tokens: `text-gray-900 dark:text-gray-100`
+- Prefer Tailwind over custom CSS when possible
+- Use CSS custom properties for theme colors in `src/styles/global.css`
+
+### Content Collections
+- Store blog posts in `src/content/blog/`
+- Store projects in `src/content/projects/`
+- Use TypeScript schemas for content validation
+- Follow this frontmatter structure:
+
+```yaml
+---
+title: "Post Title"
+description: "Brief description"
+publishDate: 2024-01-01
+tags: ["tag1", "tag2"]
+draft: false
+---
+```
+
+### Performance Best Practices
+- Always use Astro's `<Image />` component for images
+- Lazy load images below the fold
+- Use `client:load` sparingly, prefer `client:visible` or `client:idle`
+- Optimize bundle size with selective hydration
+- Use `astro:assets` for static assets
+
+### SEO & Accessibility
+- Include proper meta tags in all pages
+- Use semantic HTML elements
+- Ensure proper heading hierarchy (h1 → h2 → h3)
+- Add alt text to all images
+- Use proper ARIA labels for interactive elements
+
+## Directory Structure
+```
+src/
+├── components/
+│   ├── ui/              # Reusable UI components
+│   ├── sections/        # Page sections (Hero, About, etc.)
+│   ├── layout/          # Layout components
+│   └── react/           # React components
+├── content/
+│   ├── blog/            # Blog posts (.md/.mdx)
+│   ├── projects/        # Project descriptions
+│   └── config.ts        # Content collection schemas
+├── pages/
+│   ├── index.astro      # Landing page
+│   ├── about.astro      # About page
+│   ├── projects/        # Project pages
+│   └── blog/            # Blog pages
+├── styles/
+│   └── global.css       # Global styles + Tailwind
+└── utils/
+    └── helpers.ts       # Utility functions
+```
+
+## Import Conventions
+- Use absolute imports with `@/` alias
+- Group imports: external libraries → internal components → utilities
+- Use named imports when possible
+
+```typescript
+// External libraries
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+
+// Internal components
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+
+// Utilities
+import { formatDate } from '@/utils/helpers';
+```
+
+## Component Patterns
+
+### Page Components
+- Keep pages minimal, compose with section components
+- Handle data fetching in page frontmatter
+- Use proper TypeScript types for props
+
+### Section Components
+- Create reusable sections (Hero, About, Projects, etc.)
+- Make them flexible with props
+- Use Tailwind for responsive design
+
+### UI Components
+- Build a consistent design system
+- Use Headless UI or Radix UI for complex interactions
+- Keep components small and focused
+
+## Development Workflow
+- Use TypeScript strictly, avoid `any` types
+- Write descriptive commit messages
+- Test responsive design on multiple screen sizes
+- Optimize images before committing
+- Use ESLint and Prettier for code formatting
+
+## Common Patterns to Follow
+
+### Error Handling
+```typescript
+// In Astro components
+---
+let data;
+try {
+  data = await fetchData();
+} catch (error) {
+  console.error('Error fetching data:', error);
+  data = null;
+}
+---
+
+{data ? (
+  <DataComponent data={data} />
+) : (
+  <ErrorMessage />
+)}
+```
+
+### Content Queries
+```typescript
+// Use getCollection for content
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+```
+
+### Dark Mode
+- Use Tailwind's dark mode classes
+- Implement theme persistence with localStorage
+- Provide theme toggle component
+
+## Performance Targets
+- Lighthouse score: 90+ across all metrics
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+
+## Don't Do This
+- ❌ Don't use React for static content
+- ❌ Don't hydrate components unnecessarily
+- ❌ Don't use CSS-in-JS libraries
+- ❌ Don't forget image optimization
+- ❌ Don't skip TypeScript types
+- ❌ Don't use `client:load` by default
+
+## Do This Instead
+- ✅ Use Astro components for static content
+- ✅ Hydrate only interactive components
+- ✅ Use Tailwind CSS for styling
+- ✅ Always use `<Image />` component
+- ✅ Write proper TypeScript interfaces
+- ✅ Use `client:visible` or `client:idle`
+
+## Testing & Quality
+- Use TypeScript for type safety
+- Test responsive design manually
+- Check accessibility with browser dev tools
+- Monitor Core Web Vitals
+- Use Lighthouse CI for performance monitoring
+
+Remember: Astro's strength is in static generation with selective hydration. Keep most content static and only hydrate what needs interactivity.
