@@ -26,6 +26,18 @@
             }
           ]
         },
+        "technologies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "githubUrl": {
+          "type": "string"
+        },
+        "liveUrl": {
+          "type": "string"
+        },
         "tags": {
           "type": "array",
           "items": {
@@ -36,6 +48,10 @@
           "type": "boolean",
           "default": false
         },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
         "$schema": {
           "type": "string"
         }
@@ -43,7 +59,8 @@
       "required": [
         "title",
         "description",
-        "publishDate"
+        "publishDate",
+        "technologies"
       ],
       "additionalProperties": false
     }
