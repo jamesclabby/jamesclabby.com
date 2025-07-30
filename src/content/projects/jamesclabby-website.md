@@ -1,7 +1,7 @@
 ---
 title: "jamesclabby.com"
 description: "A personal website to host my projects and any thoughts I think others might be interested in."
-publishDate: 2024-12-15
+publishDate: 2025-07-15
 technologies: ["Astro", "React", "TypeScript", "Tailwind CSS"]
 githubUrl: "https://github.com/jamesclabby/jamesclabby.com"
 liveUrl: "https://jamesclabby.com"

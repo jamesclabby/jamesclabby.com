@@ -18,7 +18,7 @@ FeatureForge is a comprehensive feature prioritization and planning tool designe
 
 The application leverages a modern, scalable technology stack:
 
-- **Frontend**: React for a responsive and interactive user interface
+- **Frontend**: React for a responsive and interactive user interface and shadcn components for a professional look and feel
 - **Backend**: Node.js and Express for a robust API infrastructure  
 - **Database**: PostgreSQL via Neon for reliable and scalable data storage
 - **Email**: Resend for seamless email communications and notifications
@@ -40,9 +40,9 @@ The application leverages a modern, scalable technology stack:
 
 ### My First Dive into "Vibe Coding"
 
-FeatureForge was my first experiment with AI-assisted development, or as some call it, "vibe coding." I know what you might be thinking—isn't vibe coding just a fad that produces poor, unorganized, and unmaintainable code? 
+FeatureForge was my first experiment with AI-assisted development, or as some call it, "vibe coding." I know what you might be thinking - isn't vibe coding just a fad that produces poor, unorganized, and unmaintainable code? 
 
-While that can certainly be true if you rush through development without understanding your codebase, my approach was different. When I started building FeatureForge, I had only limited coding experience beyond college courses and the occasional Python script for work automation. But I was determined to learn the entire product development lifecycle: from problem identification to implementation to release.
+While that can certainly be true if you rush through development without understanding your codebase and with the goal of creating something as quickly as possible, my approach was different. When I started building FeatureForge, I had only limited coding experience beyond college courses and the occasional Python script for work automation. But I was determined to learn the entire product development lifecycle: from problem identification to implementation to release.
 
 ### My Approach: Slow and Deliberate
 
@@ -53,7 +53,7 @@ My philosophy for AI-assisted development is simple:
 - **Demand explanations** and testing for every modification
 - **Spend more time thinking** than coding
 
-This project took me several months of consistent work, but most of my time was spent thinking—about user needs, feature purposes, and architectural decisions. This deliberate approach allowed me to make meaningful, incremental progress while truly understanding my codebase.
+This project took me several months of consistent work, but most of my time was spent thinking - about user needs, feature purposes, and architectural decisions. This deliberate approach allowed me to make meaningful, incremental progress while truly understanding my codebase.
 
 ### Solving Real Problems
 
@@ -69,6 +69,6 @@ Beyond learning, I wanted to create something that product teams would actually 
 
 ### Where FeatureForge Stands Today
 
-I won't claim FeatureForge is ready for millions of users, but it's something I'm genuinely proud of—something I'd actually use myself and can continue building upon as I grow as a developer.
+I won't claim FeatureForge is ready for millions of users, but it's something I'm genuinely proud of - something I'd actually use myself and can continue building upon as I grow as a developer.
 
 **If you're reading this, I encourage you to give it a try!** Don't hesitate to share feedback, whether positive or constructive. Every insight helps me improve both the product and my skills as a developer.
